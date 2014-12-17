@@ -1,0 +1,21 @@
+relationship as observed from a cell
+a[i][j] = 
+a[i-2][j] ^ a[i-1][j-1] ^ a[i-1][j+1]
+
+derive a pattern:
+
+a   b   c   d   e
+b   ac  bd  ce  d
+c   bd  ace bd  c
+d   ce  bd  ac  b
+e   d   c   b   a
+
+a    b    c     d     e     f
+b    ac   bd    ce    df    e
+c    bd   ace   bdf   ce    d
+d    ce   bdf   ace   bd    c
+e    df   ce    bd    ac    b
+f    e    d     c     b     a
+
+
+2 SAT problem, solvable using DSU

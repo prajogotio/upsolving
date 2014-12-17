@@ -1,0 +1,103 @@
+################
+pattern
+################
+
+0123456789<-j
+.....o....0
+....o.o...1
+...o...o..2
+..o.....o.3
+.o.......o4
+o.......o.5
+.o.....o..6
+..o...o...7
+...o.o....8
+....o.....9
+          V
+          i
+
+i+j % 2 == k % 2
+j = k - i, 
+
+right bound
+j <= k + i 
+when j < N ==> i < N-k
+and
+j = (N-1) - (i - (N-k-1))
+  = (N-1) - i + N -k-1
+j <= 2(N-1) - k - i
+when i >= N-k
+
+left bound
+j >= k - i
+when j >= 0 ==> k >= i
+and
+j >= i - k
+when i >= k
+
+#####################
+how to find L,R?
+#####################
+0123456789
+....o...o.0
+...o.....o1
+..o.....o.2
+.o.....o..3
+o.....o...4
+.o...o....5
+..o.o.....6
+...S......7
+..........8
+..........9
+Source : (a,b)   eg (7,3)
+left bound:
+[j = b + (i - a)] iff j >= 0 ==> b - a + i >= 0 
+==> [i >= a-b]
+OR
+[j = ((a-b) - i)] iff i < (a-b)
+
+hence L = |a-b|.
+
+right bound:
+[j = b + (a - i)] iff j < N ==> b + a - i < N
+==> [b+a-N < i]
+OR
+j = N-1 + (i - (b+a-N + 1))
+[j = 2(N-1) + i - (b+a)]
+
+hence R = b+a if 0 > b+a-N, or
+      R = 2(N-1) - (b+a) if 0 <= b+a-N.
+
+#####################
+[prefix sum]
+#####################
+[L, R] => [L, T] XOR [R+1, T]
+count the number of sets.
+
+012
+x..
+.x.
+...
+
+0,0
+0,2 ---> 3
+
+1234
+...x
+.x.x
+....
+
+2 4
+3 4
+3 2
+
+01
+x.
+xx
+
+a b
+b a
+
+0,0 = 0,E xor 1,E
+1,1 = 1,D xor D,D
+0,0 = 0,E, xor 1,E
