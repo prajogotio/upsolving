@@ -1,0 +1,22 @@
+UNRELATED:
+	if N is not prime, then there exist q such that N|q and q^2 <= N.
+	Proof: suppose otherwise. 
+	since N is not prime, there must exist p s.t. N|p and p^2 > N.
+	Let r = N/p. r must also divides N, hence it must be that r^2 > N.
+	multiplying both inequalities, we get p^2 r^2 > N^2, or in other words
+	pr = N > N, contradiction.
+	Claim: for all A <= N, if A is not prime, there exists a prime number
+	p s.t. A|p and p^2 <= N.
+	Proof: Suppose otherwise. Since A is not prime, A is divisible by some prime q
+	s.t. q^2 > N. Let r = A/q. 
+	Suppose that r is prime. Since r must divide A as well, it follows that
+	r^2 > N. multiplying both ineq., we get A^2 = r^2 q^2 > N^2, i.e. A > N,
+	contradiction since A <= N.
+	Now suppose that r is not prime. We have two cases:
+	1. r^2 < N. In this case, it is clear that there exist a prime s < r
+		that divides r, hence s^2 < r^2 < N. but s divides A, contradicting
+		our initial assumption that if s divides A, s^2 must be bigger than N.
+	2. r^2 > N. In this case, since p^2 > N and r^2 >N, we will get A>N, contradiction.
+	[Shown]
+	Corollary: If for all p s.t. p^2 <= N, A is not divisible by p, then
+	A must be prime, for all A<=N.
